@@ -1,0 +1,13 @@
+/*.g_c
+/*.g_x
+/Generated_Code
+/FLASH
+/Documentation
+/*.traceConfig
+/*.apconfig
+/*.cwGeneratedFileSetLog
+
+# ignore all text files...
+/*.txt
+# ... except 'readme.txt'
+!/readme.txt
