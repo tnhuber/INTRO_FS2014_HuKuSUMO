@@ -8,6 +8,7 @@
 /*.cwGeneratedFileSetLog
 
 # ignore all text files...
-/*.txt
+# /*.txt
 # ... except 'readme.txt'
-!/readme.txt
+# !/readme.txt
+

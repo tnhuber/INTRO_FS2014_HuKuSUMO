@@ -1,0 +1,31 @@
+<CodeGenerationInfo>
+  <ToolchainSettings>
+    <option>
+      <name>PE_G_4PEx_ToolChain_Compiler_SearchUserPaths</name>
+      <values lines_count="2">
+        <Line>"${ProjDirPath}/Sources"</Line>
+        <Line>"${ProjDirPath}/Generated_Code"</Line>
+      </values>
+    </option>
+  </ToolchainSettings>
+  <GeneratedFilesList>
+    <GeneratedByPE>
+      <File Name="Generated_Code/Vectors.c" FileDate="2014-02-24, 21:51:28" FileAge="1393275088230" FileType="45637" CompNumb="4" />
+      <File Name="Sources/Events.h" FileDate="2014-02-24, 21:51:28" FileAge="1393275088226" FileType="131328" />
+      <File Name="Generated_Code/IO_Map.h" FileDate="2014-02-24, 21:51:28" FileAge="1393275088256" FileType="45637" />
+      <File Name="Sources/ProcessorExpert.c" FileDate="2014-02-24, 21:51:28" FileAge="1393275088240" FileType="128" />
+      <File Name="Generated_Code/PE_Const.h" FileDate="2014-02-24, 21:51:28" FileAge="1393275088256" FileType="45637" />
+      <File Name="Sources/Events.c" FileDate="2014-02-24, 21:51:28" FileAge="1393275088223" FileType="131328" />
+      <File Name="Generated_Code/PE_Error.h" FileDate="2014-02-24, 21:51:28" FileAge="1393275088256" FileType="45637" />
+      <File Name="Generated_Code/IO_Map.c" FileDate="2014-02-24, 21:51:28" FileAge="1393275088256" FileType="45637" />
+      <File Name="Documentation/ProcessorExpert_SIGNALS.txt" FileDate="2014-02-24, 21:51:28" FileAge="1393275088272" FileType="3072" />
+      <File Name="Project_Settings/Linker_Files/ProcessorExpert.prm" FileDate="2014-02-24, 21:51:28" FileAge="1393275088232" FileType="8" CompNumb="4" />
+      <File Name="Generated_Code/Cpu.h" FileDate="2014-02-24, 21:51:28" FileAge="1393275088240" FileType="45637" CompNumb="4" />
+      <File Name="Generated_Code/PE_Types.h" FileDate="2014-02-24, 21:51:28" FileAge="1393275088272" FileType="45637" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2014-02-24, 21:51:28" FileAge="1393275088236" FileType="45637" CompNumb="4" />
+      <File Name="Documentation/ProcessorExpert_Settings.xml" FileDate="2014-02-24, 21:51:28" FileAge="1393275088272" FileType="3072" />
+      <File Name="Documentation/ProcessorExpert.txt" FileDate="2014-02-24, 21:51:28" FileAge="1393275088287" FileType="3072" />
+    </GeneratedByPE>
+  </GeneratedFilesList>
+  <CodeGenReference>1</CodeGenReference>
+</CodeGenerationInfo>
