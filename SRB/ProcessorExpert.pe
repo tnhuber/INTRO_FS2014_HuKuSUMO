@@ -2,9 +2,9 @@
 <PEproject>
   <Header>
     <Name>ProcessorExpert</Name>
-    <SavedBy>René</SavedBy>
+    <SavedBy>Matthias Huber</SavedBy>
     <ModificationStamp>2</ModificationStamp>
-    <Date>2014-02-24</Date>
+    <Date>2014-02-25</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.8.1.RT5_b1349-1839</PEversion>
   </Header>
@@ -920,7 +920,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>IntVreset</ItemSymbol>
-        <Value>Vreset</Value>
+        <Value />
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
       </ItemState>
       <ItemState>
@@ -1035,7 +1035,7 @@
       <ItemState>
         <ItemSymbol>PLLvalueHigh</ItemSymbol>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>16</Value>
+        <Value>31.104</Value>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
       </ItemState>
       <ItemState>
@@ -1133,7 +1133,7 @@
       <ItemState>
         <ItemSymbol>PLLvalueLow</ItemSymbol>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>16</Value>
+        <Value>31.104</Value>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
       </ItemState>
       <ItemState>
@@ -1235,7 +1235,7 @@
       <ItemState>
         <ItemSymbol>PLLvalueSlow</ItemSymbol>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>16</Value>
+        <Value>31.104</Value>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
       </ItemState>
       <ItemState>
@@ -2909,7 +2909,7 @@
       <ItemState>
         <ItemSymbol>PLLvalueHigh</ItemSymbol>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>16</Value>
+        <Value>31.104</Value>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
       </ItemState>
       <ItemState>
@@ -3007,7 +3007,7 @@
       <ItemState>
         <ItemSymbol>PLLvalueLow</ItemSymbol>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>16</Value>
+        <Value>31.104</Value>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
       </ItemState>
       <ItemState>
@@ -3109,7 +3109,7 @@
       <ItemState>
         <ItemSymbol>PLLvalueSlow</ItemSymbol>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>16</Value>
+        <Value>31.104</Value>
         <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
       </ItemState>
       <ItemState>
