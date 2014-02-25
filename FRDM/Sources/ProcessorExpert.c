@@ -53,14 +53,15 @@ int main(void)
   /*** End of Processor Expert internal initialization.                    ***/
 
   /* Write your code here */
+  /* For example: for(;;) { } */
   for (;;)
   {
 	  LED1_On();
 	  WAIT1_Waitms(500);
 	  LED1_Off();
-	  WAIT1_Waitms(500);
-}
-  /* For example: for(;;) { } */
+	  WAIT1_Waitms(500);  
+  }
+
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
