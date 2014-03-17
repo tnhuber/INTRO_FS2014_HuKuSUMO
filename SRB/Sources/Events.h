@@ -37,6 +37,7 @@
 #include "LED1.h"
 #include "LEDpin1.h"
 #include "WAIT1.h"
+#include "CS1.h"
 
 
 /* END Events */

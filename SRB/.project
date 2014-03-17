@@ -28,4 +28,16 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Sources/include</name>
+			<type>2</type>
+			<locationURI>PARENT-1-WORKSPACE_LOC/git_INTRO_HuKuSUMO/Common/include</locationURI>
+		</link>
+		<link>
+			<name>Sources/src</name>
+			<type>2</type>
+			<locationURI>PARENT-1-WORKSPACE_LOC/git_INTRO_HuKuSUMO/Common/src</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
