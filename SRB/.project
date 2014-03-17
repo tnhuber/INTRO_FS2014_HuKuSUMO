@@ -32,12 +32,12 @@
 		<link>
 			<name>Sources/include</name>
 			<type>2</type>
-			<locationURI>PARENT-1-WORKSPACE_LOC/git_INTRO_HuKuSUMO/Common/include</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Common/src</locationURI>
 		</link>
 		<link>
 			<name>Sources/src</name>
 			<type>2</type>
-			<locationURI>PARENT-1-WORKSPACE_LOC/git_INTRO_HuKuSUMO/Common/src</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Common/src</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
