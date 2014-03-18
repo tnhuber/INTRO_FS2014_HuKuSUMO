@@ -15,6 +15,31 @@
 
 typedef enum EVNT_Handle {
   EVNT_INIT,            /*!< System Initialization Event */
+#if PL_HAS_LED_HEARTBEAT
+  EVNT_LED_HEARTBEAT,
+#endif
+#if PL_HAS_KEYS
+#if PL_NOF_KEYS>=1
+  EVNT_SW1_PRESSED,     /*!< SW1 pressed */
+  EVNT_SW1_RELEASED,    /*!< SW1 released */
+  EVNT_SW1_LPRESSED,    /*!< SW1 long pressed */
+#endif
+#if PL_NOF_KEYS>=2
+  EVNT_SW2_PRESSED,     /*!< SW2 pressed */
+  EVNT_SW2_RELEASED,    /*!< SW2 released */
+  EVNT_SW2_LPRESSED,    /*!< SW2 long pressed */
+#endif
+#if PL_NOF_KEYS>=3
+  EVNT_SW3_PRESSED,     /*!< SW3 pressed */
+  EVNT_SW3_RELEASED,    /*!< SW3 released */
+  EVNT_SW3_LPRESSED,    /*!< SW3 long pressed */
+#endif
+#if PL_NOF_KEYS>=4
+  EVNT_SW4_PRESSED,     /*!< SW4 pressed */
+  EVNT_SW4_RELEASED,    /*!< SW4 released */
+  EVNT_SW4_LPRESSED,    /*!< SW4 long pressed */
+#endif
+#endif
   EVNT_NOF_EVENTS       /*!< Must be last one! */
 } EVNT_Handle;
 
