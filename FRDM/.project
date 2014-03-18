@@ -32,7 +32,7 @@
 		<link>
 			<name>Sources/include</name>
 			<type>2</type>
-			<location>D:/INTRO/git_INTRO_HuKuSUMO/Common/include</location>
+			<locationURI>PARENT-1-PROJECT_LOC/Common/include</locationURI>
 		</link>
 		<link>
 			<name>Sources/src</name>
