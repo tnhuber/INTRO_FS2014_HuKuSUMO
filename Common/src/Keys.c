@@ -13,9 +13,37 @@
 #if PL_HAS_EVENTS
   #include "Event.h"
 #endif
+#if PL_HAS_DEBOUNCE
+  #include "Debounce.h"
+  #include "KeyDebounce.h"
+#endif
 
 void KEY_Scan(void) {
   /*! \todo Implement handling of keys */
+#if PL_HAS_DEBOUNCE
+  KEYDBNC_Scan();
+#else
+#if PL_NOF_KEYS >= 1
+  if (KEY1_Get()) { /* key pressed */
+    EVNT_SetEvent(EVNT_SW1_PRESSED);
+  }
+#endif
+#if PL_NOF_KEYS >= 2
+  if (KEY2_Get()) { /* key pressed */
+    EVNT_SetEvent(EVNT_SW2_PRESSED);
+  }
+#endif
+#if PL_NOF_KEYS >= 3
+  if (KEY3_Get()) { /* key pressed */
+    EVNT_SetEvent(EVNT_SW3_PRESSED);
+  }
+#endif
+#if PL_NOF_KEYS >= 4
+  if (KEY4_Get()) { /* key pressed */
+    EVNT_SetEvent(EVNT_SW4_PRESSED);
+  }
+#endif
+#endif /* PL_HAS_DEBOUNCE */
 }
 
 #if PL_HAS_KBI

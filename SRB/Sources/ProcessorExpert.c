@@ -30,6 +30,10 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
+#include "FRTOS1.h"
+#include "RTOSTRC1.h"
+#include "RTOSSWI1.h"
+#include "TickCntr1.h"
 #include "LED1.h"
 #include "LEDpin1.h"
 #include "LED2.h"
@@ -44,6 +48,9 @@
 #include "TI1.h"
 #include "KB1.h"
 #include "BUZ1.h"
+#include "UTIL1.h"
+#include "CLS1.h"
+#include "AS1.h"
 #include "CS1.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
