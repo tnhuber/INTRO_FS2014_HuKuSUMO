@@ -3,6 +3,7 @@
 /Generated_Code
 /FLASH
 /Documentation
+/doxy
 /*.traceConfig
 /*.apconfig
 /*.cwGeneratedFileSetLog

@@ -96,10 +96,15 @@ int main(void)
   /* For example: for(;;) { } */
   for (;;)
   {
-	  LED1_On();
+	  LED1_Neg();
 	  WAIT1_Waitms(500);
-	  LED1_Off();
-	  WAIT1_Waitms(500);  
+	  LED1_Neg();
+	  LED2_Neg();
+	  WAIT1_Waitms(500);
+	  LED2_Off();
+	  LED3_On();
+	  WAIT1_Waitms(500);
+	  LED3_Off();
   }
 
 
