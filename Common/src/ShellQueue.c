@@ -27,7 +27,9 @@ void SQUEUE_SendString(const unsigned char *str) {
 }
 
 unsigned char SQUEUE_ReceiveChar(void) {
+#if 0
   /*! \todo Implement function */
+#else
   unsigned char ch;
   portBASE_TYPE res;
 
@@ -37,6 +39,7 @@ unsigned char SQUEUE_ReceiveChar(void) {
   } else {
     return ch;
   }
+#endif
 }
 
 unsigned short SQUEUE_NofElements(void) {
@@ -49,8 +52,11 @@ void SQUEUE_Deinit(void) {
 
 void SQUEUE_Init(void) {
   SQUEUE_Queue = FRTOS1_xQueueCreate(SQUEUE_LENGTH, SQUEUE_ITEM_SIZE);
+#if PL_HAS_RTOS_TRACE
+  RTOSTRC1_vTraceSetQueueName(SQUEUE_Queue, "ShellQueue");
+#endif
   if (SQUEUE_Queue==NULL) {
     for(;;){} /* out of memory? */
   }
 }
-#endif /* PL_HAS_QUEUE */
+#endif /* PL_HAS_SHELL_QUEUE */

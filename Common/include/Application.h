@@ -11,8 +11,14 @@
 #define APPLICATION_H_
 
 /*!
+ * \brief Debug printing function
+ * \param str Debug string to print
+ */
+void APP_DebugPrint(unsigned char *str);
+
+/*!
  * \brief Application main start and main routine 
  */
-void APP_Run(void);
+void APP_Start(void);
 
 #endif /* APPLICATION_H_ */

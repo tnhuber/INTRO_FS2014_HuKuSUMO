@@ -45,8 +45,6 @@
 #include "BitIoLdd3.h"
 #include "WAIT1.h"
 #include "CS1.h"
-#include "TI1.h"
-#include "TimerIntLdd1.h"
 #include "TU1.h"
 #include "HF1.h"
 #include "SW1.h"
@@ -78,6 +76,35 @@
 #include "BitIoLdd11.h"
 #include "IR6.h"
 #include "BitIoLdd12.h"
+#include "MOTTU.h"
+#include "DIRL.h"
+#include "BitIoLdd13.h"
+#include "PWML.h"
+#include "PwmLdd1.h"
+#include "DIRR.h"
+#include "BitIoLdd14.h"
+#include "PWMR.h"
+#include "PwmLdd2.h"
+#include "I2C1.h"
+#include "MMA1.h"
+#include "GI2C1.h"
+#include "IFsh1.h"
+#include "IntFlashLdd1.h"
+#include "Q4CLeft.h"
+#include "C11.h"
+#include "BitIoLdd15.h"
+#include "C21.h"
+#include "BitIoLdd16.h"
+#include "Q4CRight.h"
+#include "C12.h"
+#include "BitIoLdd18.h"
+#include "C23.h"
+#include "BitIoLdd19.h"
+#include "QuadInt.h"
+#include "TimerIntLdd1.h"
+#include "TU_US.h"
+#include "TRIG.h"
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -204,6 +231,105 @@ void FRTOS1_vOnPreSleepProcessing(portTickType expectedIdleTicks);
 **     Returns     : Nothing
 ** ===================================================================
 */
+
+void GI2C1_OnRequestBus(void);
+/*
+** ===================================================================
+**     Event       :  GI2C1_OnRequestBus (module Events)
+**
+**     Component   :  GI2C1 [GenericI2C]
+**     Description :
+**         User event which will be called before accessing the I2C bus.
+**         Useful for starting a critical section.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void GI2C1_OnReleaseBus(void);
+/*
+** ===================================================================
+**     Event       :  GI2C1_OnReleaseBus (module Events)
+**
+**     Component   :  GI2C1 [GenericI2C]
+**     Description :
+**         User event which will be called after accessing the I2C bus.
+**         Useful for ending a critical section.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void SMAC1_OnInterrupt(void);
+/*
+** ===================================================================
+**     Event       :  SMAC1_OnInterrupt (module RNET1)
+**
+**     Component   :  TRSVR1 [MC13192]
+**     Description :
+**         Event raised in case of transceiver interrupt.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+/*
+** ===================================================================
+**     Event       :  TU_US_OnCounterRestart (module Events)
+**
+**     Component   :  TU_US [TimerUnit_LDD]
+*/
+/*!
+**     @brief
+**         Called if counter overflow/underflow or counter is
+**         reinitialized by modulo or compare register matching.
+**         OnCounterRestart event and Timer unit must be enabled. See
+**         [SetEventMask] and [GetEventMask] methods. This event is
+**         available only if a [Interrupt] is enabled.
+**     @param
+**         UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. The pointer passed as
+**                           the parameter of Init method.
+*/
+/* ===================================================================*/
+void TU_US_OnCounterRestart(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Event       :  TU_US_OnChannel0 (module Events)
+**
+**     Component   :  TU_US [TimerUnit_LDD]
+*/
+/*!
+**     @brief
+**         Called if compare register match the counter registers or
+**         capture register has a new content. OnChannel0 event and
+**         Timer unit must be enabled. See [SetEventMask] and
+**         [GetEventMask] methods. This event is available only if a
+**         [Interrupt] is enabled.
+**     @param
+**         UserDataPtr     - Pointer to the user or
+**                           RTOS specific data. The pointer passed as
+**                           the parameter of Init method.
+*/
+/* ===================================================================*/
+void TU_US_OnChannel0(LDD_TUserData *UserDataPtr);
+
+/*
+** ===================================================================
+**     Event       :  QuadInt_OnInterrupt (module Events)
+**
+**     Component   :  QuadInt [TimerInt]
+**     Description :
+**         When a timer interrupt occurs this event is called (only
+**         when the component is enabled - <Enable> and the events are
+**         enabled - <EnableEvent>). This event is enabled only if a
+**         <interrupt service/event> is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void QuadInt_OnInterrupt(void);
 
 void _OnTraceWrap(void);
 /*

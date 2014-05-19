@@ -1,9 +1,11 @@
-/*
- * Reflectance.c
+/**
+ * \file
+ * \brief Reflectance sensor driver implementation.
+ * \author Erich Styger, erich.styger@hslu.ch
  *
- *  Created on: Feb 5, 2013
- *      Author: Erich Styger
+ * This module implements the driver for the bot front sensor.
  */
+
 #include "Platform.h"
 #if PL_HAS_LINE_SENSOR
 #include "Reflectance.h"
@@ -101,7 +103,7 @@ static void REF_MeasureRaw(SensorTimeType raw[REF_NOF_SENSORS]) {
   uint8_t i;
 
   LED_IR_On(); /* IR LED's on */
-  WAIT1_Waitus(50); /*! \todo adjust time as needed */
+  WAIT1_Waitus(200); /*! \todo adjust time as needed */
 
   for(i=0;i<REF_NOF_SENSORS;i++) {
     SensorFctArray[i].SetOutput(); /* turn I/O line as output */
@@ -152,7 +154,7 @@ static void ReadCalibrated(SensorTimeType calib[REF_NOF_SENSORS], SensorTimeType
     x = 0;
     denominator = SensorCalibMinMax.maxVal[i]-SensorCalibMinMax.minVal[i];
     if (denominator!=0) {
-      x = (((int32_t)SensorRaw[i]-SensorCalibMinMax.minVal[i])*1000)/denominator;
+      x = (((int32_t)raw[i]-SensorCalibMinMax.minVal[i])*1000)/denominator;
     }
     if (x<0) {
       x = 0;
@@ -261,7 +263,7 @@ static void REF_StateMachine(void) {
 
   switch (refState) {
     case REF_STATE_INIT:
-      SHELL_SendString((unsigned char*)"no calibration data present.\r\n");
+      SHELL_SendString((unsigned char*)"INFO: No calibration data present.\r\n");
       refState = REF_STATE_NOT_CALIBRATED;
       break;
       

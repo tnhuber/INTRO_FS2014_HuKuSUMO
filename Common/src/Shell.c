@@ -38,10 +38,53 @@
 #if PL_HAS_LINE_SENSOR
   #include "Reflectance.h"
 #endif
+#if PL_HAS_MOTOR
+  #include "Motor.h"
+#endif
+#if PL_HAS_ACCEL
+  #include "Accel.h"
+  #include "MMA1.h"
+#endif
+#if PL_HAS_CONFIG_NVM
+  #include "NVM_Config.h"
+#endif
+#if PL_HAS_BUZZER
+  #include "Buzzer.h"
+#endif
+#if PL_HAS_QUADRATURE
+  #include "Q4CLeft.h"
+  #include "Q4CRight.h"
+#endif
+#if PL_HAS_MOTOR_TACHO
+  #include "Tacho.h"
+#endif
+#if PL_HAS_SHELL_TRACE
+  #include "ShellTrace.h"
+#endif
+#if PL_HAS_PID
+  #include "Pid.h"
+#endif
+#if PL_HAS_DRIVE
+  #include "Drive.h"
+#endif
+#if PL_HAS_ULTRASONIC
+  #include "Ultrasonic.h"
+#endif
+#if PL_HAS_RADIO
+  #include "RNET1.h"
+  #include "RNet_App.h"
+  #include "RNetConf.h"
+#endif
+#if RNET_CONFIG_REMOTE_STDIO
+  #include "RStdIO.h"
+#endif
+#if PL_HAS_REMOTE
+  #include "Remote.h"
+#endif
 
 void SHELL_SendString(unsigned char *msg) {
 #if PL_HAS_SHELL_QUEUE
-  /* \todo Implement using queues */
+  /*! \todo Implement function using queues */
   SQUEUE_SendString(msg);
 #else
   CLS1_SendStr(msg, CLS1_GetStdio()->stdOut);
@@ -89,6 +132,50 @@ static const CLS1_ParseCommandCallback CmdParserTable[] =
 #if PL_HAS_LINE_SENSOR
   REF_ParseCommand,
 #endif
+#if PL_HAS_MOTOR
+  MOT_ParseCommand,
+#endif
+#if PL_HAS_BUZZER
+  BUZ_ParseCommand,
+#endif
+#if PL_HAS_ACCEL
+#if defined(MMA1_PARSE_COMMAND_ENABLED)
+  MMA1_ParseCommand,
+#endif
+#endif
+#if PL_HAS_CONFIG_NVM
+  /* no parser yet */
+#endif
+#if PL_HAS_QUADRATURE
+#if Q4CLeft_PARSE_COMMAND_ENABLED
+  Q4CLeft_ParseCommand,
+#endif
+#if Q4CRight_PARSE_COMMAND_ENABLED
+  Q4CRight_ParseCommand,
+#endif
+#endif /* PL_HAS_QUADRATURE */
+#if PL_HAS_MOTOR_TACHO
+  TACHO_ParseCommand,
+#endif
+#if PL_HAS_SHELL_TRACE
+  TRACE_ParseCommand,
+#endif
+#if PL_HAS_PID
+  PID_ParseCommand,
+#endif
+#if PL_HAS_DRIVE
+  DRV_ParseCommand,
+#endif
+#if PL_HAS_ULTRASONIC
+  US_ParseCommand,
+#endif
+#if PL_HAS_RADIO
+  RNET1_ParseCommand,
+  RNETA_ParseCommand,
+#endif
+#if PL_HAS_REMOTE
+  REMOTE_ParseCommand,
+#endif
   NULL /* Sentinel */
 };
 
@@ -107,6 +194,10 @@ static unsigned char localConsole_buf[48];
 
 #if PL_HAS_RTOS
 static portTASK_FUNCTION(ShellTask, pvParameters) {
+#if RNET_CONFIG_REMOTE_STDIO
+  static unsigned char radio_cmd_buf[48];
+  CLS1_ConstStdIOType *ioRemote = RSTDIO_GetStdioRx();
+#endif
 #if CLS1_DEFAULT_SERIAL
   CLS1_ConstStdIOTypePtr ioLocal = CLS1_GetStdio();  
 #endif
@@ -118,6 +209,10 @@ static portTASK_FUNCTION(ShellTask, pvParameters) {
   for(;;) {
 #if CLS1_DEFAULT_SERIAL
     (void)CLS1_ReadAndParseWithCommandTable(localConsole_buf, sizeof(localConsole_buf), ioLocal, CmdParserTable);
+#endif
+#if RNET_CONFIG_REMOTE_STDIO
+    RSTDIO_Print(ioLocal); /* dispatch incoming messages */
+    (void)CLS1_ReadAndParseWithCommandTable(radio_cmd_buf, sizeof(radio_cmd_buf), ioRemote, CmdParserTable);
 #endif
 #if PL_HAS_BLUETOOTH
     (void)CLS1_ReadAndParseWithCommandTable(bluetooth_buf, sizeof(bluetooth_buf), &BT_stdio, CmdParserTable);
@@ -150,7 +245,7 @@ void SHELL_Init(void) {
   (void)CLS1_SetStdio(&BT_stdio); /* use the Bluetooth stdio as default */
 #endif
 #if PL_HAS_RTOS
-  if (FRTOS1_xTaskCreate(ShellTask, "Shell", configMINIMAL_STACK_SIZE+100, NULL, tskIDLE_PRIORITY+1, NULL) != pdPASS) {
+  if (FRTOS1_xTaskCreate(ShellTask, "Shell", configMINIMAL_STACK_SIZE+150, NULL, tskIDLE_PRIORITY+1, NULL) != pdPASS) {
     for(;;){} /* error */
   }
 #endif

@@ -43,6 +43,14 @@ typedef enum EVNT_Handle {
 #if PL_HAS_LINE_SENSOR
   EVNT_REF_START_STOP_CALIBRATION, /*!< start/stop calibration */
 #endif
+#if PL_HAS_RADIO
+  EVNT_RADIO_TIMEOUT,   /*!< Radio timeout */
+  EVNT_RADIO_DATA,      /*!< Radio data */
+  EVNT_RADIO_ACK,       /*!< Radio ack message */
+  EVNT_RADIO_UNKNOWN,   /*!< Radio unknown data packet */
+  EVNT_RADIO_OVERFLOW,  /*!< Radio received to long data packet */
+  EVNT_RADIO_RESET,     /*!< Radio has reset */
+#endif
   EVNT_NOF_EVENTS       /*!< Must be last one! */
 } EVNT_Handle;
 
